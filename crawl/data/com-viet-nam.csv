@@ -1,234 +1,59 @@
-[
-    {
-        "price": 32000,
-        "item_name": "CƠM TRỨNG HỒNG ĐÀO KHO TIÊU"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM TRỨNG CHIÊN HÀNH TÂY"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM MẮM CHƯNG"
-    },
-    {
-        "price": 40000,
-        "item_name": "CƠM ẾCH XÀO SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM MỰC XÀO SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM LÒNG HEO KHÌA NƯỚC DỪA"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM MẮM RUỐC XÀO THỊT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM SƯỜN RAM"
-    },
-    {
-        "price": 40000,
-        "item_name": "CƠM SƯỜN RAM + TRỨNG CHIÊN"
-    },
-    {
-        "price": 40000,
-        "item_name": "CƠM SƯỜN RAM + TRỨNG KHO"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO TIÊU + TRỨNG KHO"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO TIÊU"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO ĐẬU HŨ"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM ĐẬU HŨ DỒN THỊT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM XÍU MẠI"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM SƯỜN NON KHO TRỨNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM SƯỜN NON KHO"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO TRỨNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO CỦ CẢI TRẮNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM THỊT KHO MĂNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM BÒ XÀO SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM TÔM RIM THỊT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM MỀ GÀ XÀO SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM ĐÙI GÀ LUỘC MUỐI TIÊU CHANH"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM ĐÙI GÀ GÔ TY"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁNH GÀ CHIÊN NƯỚC MẮM"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM GÀ KHO SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM GÀ KHO GỪNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM ĐÙI GÀ CHIÊN NƯỚC MẮM"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ NỤC KHO CÀ"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ NỤC KHO MĂNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ HÚ KHO"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ DIÊU HỒNG KHO"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ LÓC KHO TIÊU"
-    },
-    {
-        "price": 40000,
-        "item_name": "CƠM ĐẦU CÁ LÓC KHO TIÊU"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CHẢ CÁ KHO TIÊU"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ TRÊ KHO TIÊU"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ NỤC CHIÊN NƯỚC MẮM GỪNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ NỤC CHIÊN RIM NƯỚC MẮM"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ NỤC CHIÊN SỐT CÀ"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ DIÊU HỒNG CHIÊN NƯỚC MẮM GỪNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ DIÊU HỒNG CHIÊN SỐT CÀ"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ HÚ CHIÊN NƯỚC MẮM GỪNG"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ HÚ CHIÊN SỐT CÀ"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ LÓC CHIÊN SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ BA SA PHI LÊ CHIÊN SẢ ỚT"
-    },
-    {
-        "price": 35000,
-        "item_name": "CƠM CÁ TRÊ CHIÊN NƯỚC MẮM GỪNG"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM DƯA CẢI CHUA XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM MĂNG XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM ĐẬU VE CÀ RỐT XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM MƯỚP XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM MƯỚP XÀO MỀ GÀ"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM KHỔ QUA XÀO + TRỨNG CHIÊN"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM KHỔ QUA XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM SU SU XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM BẮP CẢI XÀO THỊT"
-    },
-    {
-        "price": 32000,
-        "item_name": "CƠM BẮP CẢI XÀO MỀ GÀ"
-    },
-    {
-        "price": 25000,
-        "item_name": "DƯA CẢI CHUA XÀO THỊT ĂN THÊM"
-    }
-]
+item_name,price
+CƠM TRỨNG HỒNG ĐÀO KHO TIÊU,32000
+CƠM TRỨNG CHIÊN HÀNH TÂY,32000
+CƠM MẮM CHƯNG,35000
+CƠM ẾCH XÀO SẢ ỚT,40000
+CƠM MỰC XÀO SẢ ỚT,35000
+CƠM LÒNG HEO KHÌA NƯỚC DỪA,35000
+CƠM MẮM RUỐC XÀO THỊT,35000
+CƠM SƯỜN RAM,35000
+CƠM SƯỜN RAM + TRỨNG CHIÊN,40000
+CƠM SƯỜN RAM + TRỨNG KHO,40000
+CƠM THỊT KHO TIÊU + TRỨNG KHO,35000
+CƠM THỊT KHO TIÊU,35000
+CƠM THỊT KHO ĐẬU HŨ,35000
+CƠM ĐẬU HŨ DỒN THỊT,35000
+CƠM XÍU MẠI,35000
+CƠM SƯỜN NON KHO TRỨNG,35000
+CƠM SƯỜN NON KHO,35000
+CƠM THỊT KHO TRỨNG,35000
+CƠM THỊT KHO CỦ CẢI TRẮNG,35000
+CƠM THỊT KHO MĂNG,35000
+CƠM BÒ XÀO SẢ ỚT,35000
+CƠM TÔM RIM THỊT,35000
+CƠM MỀ GÀ XÀO SẢ ỚT,35000
+CƠM ĐÙI GÀ LUỘC MUỐI TIÊU CHANH,35000
+CƠM ĐÙI GÀ GÔ TY,35000
+CƠM CÁNH GÀ CHIÊN NƯỚC MẮM,35000
+CƠM GÀ KHO SẢ ỚT,35000
+CƠM GÀ KHO GỪNG,35000
+CƠM ĐÙI GÀ CHIÊN NƯỚC MẮM,35000
+CƠM CÁ NỤC KHO CÀ,35000
+CƠM CÁ NỤC KHO MĂNG,35000
+CƠM CÁ HÚ KHO,35000
+CƠM CÁ DIÊU HỒNG KHO,35000
+CƠM CÁ LÓC KHO TIÊU,35000
+CƠM ĐẦU CÁ LÓC KHO TIÊU,40000
+CƠM CHẢ CÁ KHO TIÊU,35000
+CƠM CÁ TRÊ KHO TIÊU,35000
+CƠM CÁ NỤC CHIÊN NƯỚC MẮM GỪNG,35000
+CƠM CÁ NỤC CHIÊN RIM NƯỚC MẮM,35000
+CƠM CÁ NỤC CHIÊN SỐT CÀ,35000
+CƠM CÁ DIÊU HỒNG CHIÊN NƯỚC MẮM GỪNG,35000
+CƠM CÁ DIÊU HỒNG CHIÊN SỐT CÀ,35000
+CƠM CÁ HÚ CHIÊN NƯỚC MẮM GỪNG,35000
+CƠM CÁ HÚ CHIÊN SỐT CÀ,35000
+CƠM CÁ LÓC CHIÊN SẢ ỚT,35000
+CƠM CÁ BA SA PHI LÊ CHIÊN SẢ ỚT,35000
+CƠM CÁ TRÊ CHIÊN NƯỚC MẮM GỪNG,35000
+CƠM DƯA CẢI CHUA XÀO THỊT,32000
+CƠM MĂNG XÀO THỊT,32000
+CƠM ĐẬU VE CÀ RỐT XÀO THỊT,32000
+CƠM MƯỚP XÀO THỊT,32000
+CƠM MƯỚP XÀO MỀ GÀ,32000
+CƠM KHỔ QUA XÀO + TRỨNG CHIÊN,32000
+CƠM KHỔ QUA XÀO THỊT,32000
+CƠM SU SU XÀO THỊT,32000
+CƠM BẮP CẢI XÀO THỊT,32000
+CƠM BẮP CẢI XÀO MỀ GÀ,32000
+DƯA CẢI CHUA XÀO THỊT ĂN THÊM,25000
