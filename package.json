@@ -7,13 +7,21 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "commandkit dev",
 		"build": "commandkit build",
-		"start": "commandkit start"
+		"start": "commandkit start",
+		"format": "prettier --write \"src/**/*.js\""
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"axios": "^1.8.4",
+		"cheerio": "^1.0.0",
 		"commandkit": "^0.1.10",
-		"discord.js": "^14.18.0"
+		"discord.js": "^14.18.0",
+		"google-auth-library": "^9.15.1",
+		"googleapis": "^148.0.0"
+	},
+	"devDependencies": {
+		"prettier": "^3.5.3"
 	}
 }

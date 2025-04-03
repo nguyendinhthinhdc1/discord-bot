@@ -1,15 +1,15 @@
 /** @type {import('commandkit').CommandData} */
 const data = {
 	name: 'ping',
-	description: 'Pong!'
-}
+	description: 'Pong!',
+};
 
 /** @param {import('commandkit').SlashCommandProps} param0 */
 function run({ interaction, client }) {
-	interaction.reply(`:ping_pong: Pong! ${client.ws.ping}ms`)
+	interaction.reply(`:ping_pong: Pong! ${client.ws.ping}ms`);
 }
 
 /** @type {import('commandkit').CommandOptions} */
-const options = {}
+const options = {};
 
-module.exports = { data, run, options }
+module.exports = { data, run, options };
