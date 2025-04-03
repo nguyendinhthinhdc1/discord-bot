@@ -34,7 +34,7 @@ function run({ interaction }) {
 	const menuLink = `${GOOGLE_SPREADSHEET_MENU_URL}?gid=${gid}#gid=${gid}`;
 	const note = `${
 		restaurantNote ? `${restaurantNote}\n` : ''
-	}**Order theo cú pháp**\n+<số lượng><tên món 1>\n+<số lượng><tên món 2>\n...\n**Tên món** mọi người ghi đúng với tên trong **Link menu tiếng Việt** nha mọi người`;
+	}**Order theo cú pháp**\n+<số lượng> <tên món 1>\n+<số lượng> <tên món 2>\n...\n**Tên món** mọi người ghi đúng với tên trong **Link menu tiếng Việt** nha mọi người`;
 
 	interaction.reply(
 		`@everyone Mọi người pick món nha \n**Link menu tiếng Việt**: ${menuLink}\n**Link quán**: ${primaryLink}${

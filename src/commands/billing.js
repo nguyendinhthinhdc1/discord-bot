@@ -127,7 +127,7 @@ async function fetchMenuData(restaurantName) {
 	const menu = {};
 	rows.forEach(([name, price]) => {
 		if (name && price) {
-			menu[name.trim()] = parseFloat(price.trim());
+			menu[name.trim().toLowerCase()] = parseFloat(price.trim());
 		}
 	});
 
@@ -170,7 +170,7 @@ async function calculatePrice(transformedMessages, restaurantName, totalPrice, t
 function buildSheetData(data) {
 	// Prepare values to update
 	const rows = [
-		['User', 'Dishes', 'Quantity', 'Price', 'Total', 'Price after discount'],
+		['User', 'Dishes', 'Quantity', 'Price', 'Total', 'Price after discount', 'Date'],
 		...Object.entries(data).flatMap(([user, order]) =>
 			order.map(element => [
 				user,
@@ -179,6 +179,7 @@ function buildSheetData(data) {
 				element.price,
 				element.total,
 				element.priceAfterDiscount,
+				new Date().toLocaleDateString(),
 			]),
 		),
 	];
@@ -198,7 +199,7 @@ async function transformMessages(groupedMessages, restaurantName) {
 					if (match) {
 						const quantity = match[1] ? parseInt(match[1], 10) : 1;
 						const dish = match[2].trim();
-						const price = menu[dish] || 0;
+						const price = menu[dish.toLowerCase()] || 0;
 						return { dish, quantity, price };
 					}
 					return null;
