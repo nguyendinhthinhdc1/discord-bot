@@ -1,4 +1,4 @@
-const restaurants = require('../data/restaurants.json');
+const { orderPollOptions } = require('../utils/poll');
 
 const data = {
 	name: 'create-poll',
@@ -13,12 +13,7 @@ const data = {
 function run({ interaction }) {
 	interaction.channel.send({
 		content: 'Ăn gì trưa nay?',
-		poll: {
-			question: { text: 'Ăn gì trưa nay?' },
-			answers: restaurants.map(restaurant => ({ text: restaurant.name })),
-			allowMultiselect: true,
-			duration: 1,
-		},
+		poll: orderPollOptions,
 	});
 }
 
