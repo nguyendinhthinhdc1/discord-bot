@@ -2,6 +2,8 @@ const { get } = require('http');
 const { addToGoogleSheet, getSheet } = require('../services/google-api.service');
 const { GOOGLE_SPREADSHEET_MENU_ID } = require('../config/google-api.config');
 const restaurants = require('../data/restaurants.json');
+const { discordConfig } = require('../config/discord.config');
+const { formatSheetDataForDiscord } = require('../utils/common');
 
 const data = {
 	name: 'billing',
@@ -38,15 +40,31 @@ const data = {
  */
 
 // Example usage in the `run` function
-async function run({ interaction }) {
+async function run({ interaction, client }) {
 	await interaction.deferReply(); // Defer the reply since this might take time
+
+	// IDs for the source and destination channels
+	const sourceChannelId = discordConfig.DISCORD_ORDER_CHANNEL_ID; // Replace with the actual source channel ID
+	const destinationChannelId = discordConfig.DISCORD_BILLING_CHANNEL_ID; // Replace with the actual destination channel ID
+
 	const restaurantName = interaction.options.getString('restaurant');
 	const totalPrice = interaction.options.getInteger('total_price');
 	const totalPaid = interaction.options.getInteger('total_paid');
-	const channel = interaction.channel;
 
 	try {
-		const groupedMessages = await fetchMessagesGroupedByUser(channel);
+		// Fetch the source and destination channels
+		const sourceChannel = await client.channels.fetch(sourceChannelId);
+		const destinationChannel = await client.channels.fetch(destinationChannelId);
+
+		if (!sourceChannel || !sourceChannel.isTextBased()) {
+			throw new Error('Invalid source channel.');
+		}
+		if (!destinationChannel || !destinationChannel.isTextBased()) {
+			throw new Error('Invalid destination channel.');
+		}
+
+		// Fetch and process messages from the source channel
+		const groupedMessages = await fetchMessagesGroupedByUser(sourceChannel);
 		const transformedMessages = await transformMessages(groupedMessages, restaurantName);
 		const orderData = await calculatePrice(
 			transformedMessages,
@@ -55,10 +73,12 @@ async function run({ interaction }) {
 			totalPaid,
 		);
 		const sheetData = buildSheetData(orderData);
-
 		// Add data to Google Sheet
 		const sheetResponse = await addToGoogleSheet(sheetData);
-		await interaction.editReply(sheetResponse);
+
+		const textResult = formatSheetDataForDiscord(sheetData);
+		// Send the response to the destination channel
+		await destinationChannel.send(`${textResult}\nMore details: ${sheetResponse.sheetLink}`);
 	} catch (error) {
 		await interaction.editReply(`Error: ${error.message}`);
 	}
@@ -193,18 +213,22 @@ async function transformMessages(groupedMessages, restaurantName) {
 		return {
 			user,
 			messages: messages
-				.map(message => {
-					const regex = /\+(\d+)?(.+)/;
-					const match = message.match(regex);
-					if (match) {
-						const quantity = match[1] ? parseInt(match[1], 10) : 1;
-						const dish = match[2].trim();
-						const price = menu[dish.toLowerCase()] || 0;
-						return { dish, quantity, price };
-					}
-					return null;
+				.flatMap(message => {
+					// Split the message by newlines and process each line
+					return message.split('\n').map(line => {
+						// Updated regex to handle optional space after the `+` sign
+						const regex = /\+\s*(\d+)?\s*(.+)/;
+						const match = line.match(regex);
+						if (match) {
+							const quantity = match[1] ? parseInt(match[1], 10) : 1;
+							const dish = match[2].trim();
+							const price = menu[dish.toLowerCase()] || 0;
+							return { dish, quantity, price };
+						}
+						return null;
+					});
 				})
-				.filter(item => item !== null),
+				.filter(item => item !== null), // Filter out invalid lines
 		};
 	});
 	return transformedMessages;

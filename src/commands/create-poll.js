@@ -16,7 +16,7 @@ function run({ interaction }) {
 		poll: {
 			question: { text: 'Ăn gì trưa nay?' },
 			answers: restaurants.map(restaurant => ({ text: restaurant.name })),
-			allowMultiSelect: true,
+			allowMultiselect: true,
 			duration: 1,
 		},
 	});

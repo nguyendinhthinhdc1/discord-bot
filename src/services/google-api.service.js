@@ -54,7 +54,9 @@ async function getSheet() {
 /**
  * Add messages to Google Sheet, creating a new sheet with the current date if needed
  * @param {Object} sheetData - The data to be added to the sheet
- * @returns {Promise<string>} - A promise that resolves to a success message
+ * @returns {Promise<Object>} - A promise that resolves to an object containing the sheet title and link
+ * @property {string} sheetTitle - The title of the sheet
+ * @property {string} sheetLink - The link to the specific sheet
  */
 async function addToGoogleSheet(sheetData) {
 	try {
@@ -82,7 +84,10 @@ async function addToGoogleSheet(sheetData) {
 		// Construct the link to the specific sheet
 		const sheetLink = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit#gid=${sheetId}`;
 
-		return `Data successfully added to Google Sheet in tab "${sheetTitle}"! Link: ${sheetLink}`;
+		return {
+			sheetTitle,
+			sheetLink,
+		};
 	} catch (error) {
 		console.error('Error adding to Google Sheet:', error);
 		throw new Error(`Failed to add data to Google Sheet: ${error.message}`);
