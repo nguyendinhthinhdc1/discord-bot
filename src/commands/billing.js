@@ -4,6 +4,7 @@ const { GOOGLE_SPREADSHEET_MENU_ID } = require('../config/google-api.config');
 const restaurants = require('../data/restaurants.json');
 const { discordConfig } = require('../config/discord.config');
 const { formatSheetDataForDiscord } = require('../utils/common');
+const esClient = require('../config/elastic-search.config'); // Assuming you moved client setup
 
 const data = {
 	name: 'billing',
@@ -206,32 +207,90 @@ function buildSheetData(data) {
 	return rows;
 }
 
-async function transformMessages(groupedMessages, restaurantName) {
-	const menu = await fetchMenuData(restaurantName);
+// Helper function to find index name (optional, but cleaner)
+function getIndexNameForRestaurant(name) {
+    const restaurant = restaurants.find(r => r.name === name);
+    return restaurant ? restaurant.indexName : null;
+}
 
-	const transformedMessages = Object.entries(groupedMessages).map(([user, messages]) => {
-		return {
-			user,
-			messages: messages
-				.flatMap(message => {
-					// Split the message by newlines and process each line
-					return message.split('\n').map(line => {
-						// Updated regex to handle optional space after the `+` sign
-						const regex = /\+\s*(\d+)?\s*(.+)/;
-						const match = line.match(regex);
-						if (match) {
-							const quantity = match[1] ? parseInt(match[1], 10) : 1;
-							const dish = match[2].trim();
-							const price = menu[dish.toLowerCase()] || 0;
-							return { dish, quantity, price };
-						}
-						return null;
-					});
-				})
-				.filter(item => item !== null), // Filter out invalid lines
-		};
-	});
-	return transformedMessages;
+async function transformMessages(groupedMessages, restaurantName) {
+    // Find the predefined index name for the given restaurant
+    const indexName = getIndexNameForRestaurant(restaurantName);
+
+    if (!indexName) {
+        console.error(`Could not find indexName for restaurant: ${restaurantName} in restaurants.json`);
+        // Decide how to handle this - maybe return empty results or throw an error
+        // For now, let's return empty results for users of this restaurant
+        return Object.entries(groupedMessages).map(([user]) => ({ user, messages: [] }));
+    }
+
+    console.log(`Using index: ${indexName} for restaurant: ${restaurantName}`); // For debugging
+
+    const transformedMessagesPromises = Object.entries(groupedMessages).map(async ([user, messages]) => {
+        const processedMessagesPromises = messages
+            .flatMap(message => {
+                // Split the message by newlines and process each line
+                return message.split('\n').map(line => {
+                    // Updated regex to handle optional space after the `+` sign
+                    const regex = /\+\s*(\d+)?\s*(.+)/;
+                    const match = line.match(regex);
+                    if (match) {
+                        const quantity = match[1] ? parseInt(match[1], 10) : 1;
+                        const dishName = match[2].trim();
+
+                        return (async () => {
+                            try {
+                                // Use the indexName found from restaurants.json
+                                // Get the full response object first
+                                const response = await esClient.search({
+                                    index: indexName, // <-- Use the predefined index name
+                                    body: {
+                                        query: {
+                                            bool: {
+                                                must: [
+                                                    { match_phrase: { dishName: dishName } }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                });
+
+                                // Check if response and body.hits exist before accessing properties
+                                let price = 0;
+                                // Check the structure returned by your Elasticsearch client library
+                                // Common structures are response.body.hits or response.hits
+                                const hitsData = response?.body?.hits || response?.hits; // Adjust based on your client library
+
+                                if (hitsData && hitsData.hits && hitsData.hits.length > 0) {
+                                    price = hitsData.hits[0]._source.price;
+                                } else {
+                                     // Only warn if the hits array is empty or doesn't exist
+                                     console.warn(`Dish "${dishName}" not found or unexpected response structure in Elasticsearch index "${indexName}". Response:`, response);
+                                }
+                                return { dish: dishName, quantity, price };
+
+                            } catch (error) {
+                                // Log error with index name for context
+                                console.error(`Error querying Elasticsearch index "${indexName}" for dish "${dishName}":`, error);
+                                return { dish: dishName, quantity, price: 0 };
+                            }
+                        })();
+                    }
+                    return null;
+                });
+            })
+            .filter(item => item !== null);
+
+        const resolvedMessages = (await Promise.all(processedMessagesPromises)).filter(item => item !== null);
+
+        return {
+            user,
+            messages: resolvedMessages,
+        };
+    });
+
+    const transformedMessages = await Promise.all(transformedMessagesPromises);
+    return transformedMessages;
 }
 
 module.exports = { data, run };

@@ -1,44 +1,50 @@
 [
-	{
-		"name": "Cơm Thảo Phương",
-		"link": "https://r.grab.com/g/6-20240425_110137_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS-5-CY3UEPCHV3THVX",
-		"sFoodLink": "https://shopeefood.shopee.vn/u/P44UXJY",
-		"value": "1",
-		"note": "Ai ăn canh hay mắm kho nhớ note +Tô giúp e nha",
-		"gid": "0"
-	},
-	{
-		"name": "Cơm Việt Nam",
-		"link": "https://begroup.onelink.me/n83F/o83m8uqr",
-		"value": "2",
-		"note": "",
-		"gid": "891011169"
-	},
-	{
-		"name": "Cơm thố Tiến Phát",
-		"link": "https://food.grab.com/vn/vi/restaurant/c%C6%A1m-th%E1%BB%91-ti%E1%BA%BFn-ph%C3%A1t-nguy%E1%BB%85n-th%C3%A1i-b%C3%ACnh-delivery/5-C4DVLJBCC4DDV6?sourceID=20240312_105941_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS",
-		"value": "3",
-		"note": "Mấy món giảm giá chỉ đc 1 lần nên nhiều ng đặt sẽ share khuyễn mãi ra nha mn",
-		"gid": "1605294820"
-	},
-	{
-		"name": "Cơm gà Tân Hải Nam",
-		"link": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-g%C3%A0-t%C3%A2n-h%E1%BA%A3i-nam-b%C3%ACnh-gi%C3%A3-delivery/VNGFVN000000dg?sourceID=20241018_102500_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS",
-		"value": "4",
-		"note": "Mọi người đặt món ở menu chính grab nha, mn xem món check giúp e món đó bên menu grab có ko nha",
-		"gid": "1381138783"
-	},
-	{
-		"name": "A Huy Bún Thịt Nướng - Cơm Sườn Bì",
-		"link": "https://r.grab.com/g/6-20250217_100153_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS-5-C2VVGUDHMAN3HE",
-		"value": "5",
-		"note": "",
-		"gid": "1563177709"
-	},
-	{
-		"name": "Mỳ trộn tên lửa",
-		"link": "https://example.com/restaurants/my-tron-ten-lua",
-		"value": "6",
-		"note": ""
-	}
+    {
+        "name": "Cơm Thảo Phương",
+        "link": "https://r.grab.com/g/6-20240425_110137_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS-5-CY3UEPCHV3THVX",
+        "sFoodLink": "https://shopeefood.shopee.vn/u/P44UXJY",
+        "value": "1",
+        "note": "Ai ăn canh hay mắm kho nhớ note +Tô giúp e nha",
+        "gid": "0",
+        "indexName": "menu-com-thao-phuong"
+    },
+    {
+        "name": "Cơm Việt Nam",
+        "link": "https://begroup.onelink.me/n83F/o83m8uqr",
+        "value": "2",
+        "note": "",
+        "gid": "891011169",
+        "indexName": "menu-com-viet-nam"
+    },
+    {
+        "name": "Cơm thố Tiến Phát",
+        "link": "https://food.grab.com/vn/vi/restaurant/c%C6%A1m-th%E1%BB%91-ti%E1%BA%BFn-ph%C3%A1t-nguy%E1%BB%85n-th%C3%A1i-b%C3%ACnh-delivery/5-C4DVLJBCC4DDV6?sourceID=20240312_105941_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS",
+        "value": "3",
+        "note": "Mấy món giảm giá chỉ đc 1 lần nên nhiều ng đặt sẽ share khuyễn mãi ra nha mn",
+        "gid": "1605294820",
+        "indexName": "menu-com-tho-tien-phat"
+    },
+    {
+        "name": "Cơm gà Tân Hải Nam",
+        "link": "https://food.grab.com/vn/en/restaurant/c%C6%A1m-g%C3%A0-t%C3%A2n-h%E1%BA%A3i-nam-b%C3%ACnh-gi%C3%A3-delivery/VNGFVN000000dg?sourceID=20241018_102500_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS",
+        "value": "4",
+        "note": "Mọi người đặt món ở menu chính grab nha, mn xem món check giúp e món đó bên menu grab có ko nha",
+        "gid": "1381138783",
+        "indexName": "menu-com-ga-tan-hai-nam"
+    },
+    {
+        "name": "A Huy Bún Thịt Nướng - Cơm Sườn Bì",
+        "link": "https://r.grab.com/g/6-20250217_100153_D8A6BC741FE74F10A285F32CF5045B54_MEXMPS-5-C2VVGUDHMAN3HE",
+        "value": "5",
+        "note": "",
+        "gid": "1563177709",
+        "indexName": "menu-a-huy-bun-thit-nuong"
+    },
+    {
+        "name": "Mỳ trộn tên lửa",
+        "link": "https://example.com/restaurants/my-tron-ten-lua",
+        "value": "6",
+        "note": "",
+        "indexName": "menu-my-tron-ten-lua"
+    }
 ]
